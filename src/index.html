@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo/todo-top.png">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
+    <title>to do list</title>
+</head>
+
+
+<body>
+
+          <!-- barra de navegación -->
+  <div class="navbar">
+    <header>
+      <img src="/assets/img/logo/todo.gif" alt="to do list" />
+    </header>
+    <ul>  
+        <li><button type="submit" id="process-task" class="btn-action">nueva tarea</button></li>
+        <li>
+          <form id="filter-form" class="filter-section">
+            <button id="open-filters" class="btn">filtrar tareas</button>
+            <select id="tag-filter" class="filter-field">
+              <option value="" selected disabled hidden>etiqueta</option>
+              <option value="Personal">personal</option>
+              <option value="Laboral">laboral</option>
+              <option value="Escolar">escolar</option>
+            </select>
+            <div class="fx-row">
+              <label for="status-filter" class="filter-field" id="status-label-field">completada</label>
+              <input type="checkbox" id="status-filter"  class="filter-field"/>
+            </div>
+            <button type="submit" id="apply-filters" class="btn-submit filter-field">aplicar filtro</button> 
+          </form>
+          </li>
+          <li><button type="reset" id="reset-filters" class="btn">borrar filtros</button></li>   
+    </ul>
+  </div>
+          <!-- listado de tareas -->
+  <main>
+    <h1>tareas</h1>
+      <br>
+       <div class="table-container">
+
+          <table id="data-table">
+            <thead>
+              <tr id="row">
+                <th>status</th>
+                <th>título</th>
+                <th>descripción</th>
+                <th>fecha de entrega</th>
+                <th>prioridad</th>
+                <th>etiqueta</th>
+                <th>editar</th>
+                <th>eliminar</th>
+              </tr>
+            </thead>
+            <tbody id="data-table-body">
+            </tbody>
+          </table>
+      </div>
+
+      <div id="message" class="message">
+          <p>sin tareas.</p>
+      </div>
+
+      <div id="modal-background" class="modal-background">
+      </div>
+
+          <!-- formato nueva tarea -->
+      <div id="modal" class="modal">
+          <h2 id="modal-title">nueva tarea</h2>
+          <form id="sale-form" class="form-section fx-content-center fx-row">
+            <div class="fx-row">
+              <label for="title-field">título</label>
+              <input type="text" id="title-field" class="form-field" placeholder="titulo de tarea"  required/>
+            </div>
+            <div  class="fx-row">
+              <label for="description-field">descripción</label>
+              <textarea type="text" id="description-field" class="form-field" placeholder="descripcion de la tarea" required></textarea>
+            </div>      
+            <div  class="fx-row">
+              <label id="status-field-label" for="status-field" style="display: none;">status</label>
+              <input type="checkbox" id="status-field" style="display: none;" class="form-field"/></input>
+              <p id="status-p-field" style="display: none;"></p>
+            </div>
+            <div  class="fx-row">
+              <label for="date-field">fecha de entrega</label>
+              <input type="date" id="date-field" class="form-field" required>
+            </div>  
+            <div  class="fx-row">
+              <label for="priority-field">prioridad</label>
+              <select id="priority-field" class="form-field" required>
+                <option value="" selected disabled hidden>selecciona la prioridad</option>
+                <option value="Alta">alta</option>
+                <option value="Media">media</option>
+                <option value="Baja">baja</option>
+              </select>
+            </div>
+            <div  class="fx-row">
+              <label for="tag-field">etiqueta</label>
+              <select id="tag-field" class="form-field" required>
+                <option value="" selected disabled hidden>selecciona la etiqueta</option>
+                <option value="Personal">personal</option>
+                <option value="Laboral">laboral</option>
+                <option value="Escolar">escolar</option>
+              </select> 
+            </div>
+            <button id="botonModal" type="submit" class="btn-submit">guardar</button>
+          </form>
+      </div>
+  </main>
+
+    <script src="./shared/fetch-api.js"></script>
+    <script src="./shared/utils.js"></script>
+    <script src="script.js"></script>  
+</body>
+</html>
